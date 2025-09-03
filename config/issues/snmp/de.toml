@@ -1,0 +1,72 @@
+["insecure snmp version"]
+description = "SNMP-Dienst verwendet eine unsichere Version: {version}. Community-Strings werden im Klartext übertragen."
+recommendations = [
+  "Verwenden Sie SNMPv3, da diese Version Authentifizierung und Verschlüsselung bietet.",
+  "Deaktivieren Sie SNMPv1, um Sicherheitsrisiken zu vermeiden.",
+  "Ersetzen Sie unsichere Community-Strings durch starke, einzigartige Werte."
+]
+references = [
+  "RFC 3411: SNMP Framework",
+  "https://tools.ietf.org/html/rfc3411"
+]
+
+["weak snmp version"]
+description = "SNMP-Dienst verwendet schwache Version: {version}. Community-Strings werden im Klartext übertragen."
+recommendations = [
+  "Verwenden Sie SNMPv3, da diese Version Authentifizierung und Verschlüsselung bietet.",
+  "Deaktivieren Sie SNMPv2c, um das Abhören von Netzwerkverkehr zu verhindern.",
+  "Setzen Sie sichere Community-Strings ein."
+]
+references = [
+  "RFC 3411: SNMP Framework",
+  "https://tools.ietf.org/html/rfc3411"
+]
+
+["unusual transport protocol"]
+description = "SNMP-Dienst verwendet ungewöhnliches Transportprotokoll {protocol}: {details}."
+recommendations = [
+  "Überprüfen Sie, ob SNMP über TCP absichtlich konfiguriert wurde.",
+  "Verwenden Sie bevorzugt SNMP über UDP.",
+  "Passen Sie Firewall-Regeln entsprechend an."
+]
+references = [
+  "IANA: Zuweisung der Internet-Protokollnummern",
+  "RFC 3411: SNMP Framework"
+]
+
+["public snmp exposure"]
+description = "SNMP-Dienst ist öffentlich im Internet erreichbar (Adresse: {address}, Port: {port})."
+recommendations = [
+  "Beschränken Sie SNMP-Zugang auf interne Netzwerke.",
+  "Verwenden Sie Zugangskontrollen und Firewalls, um öffentliche Exposition zu vermeiden.",
+  "Setzen Sie starke Authentifizierung und sichere SNMP-Versionen ein."
+]
+references = [
+  "CIS Controls v7",
+  "OWASP Top 10",
+  "RFC 3411"
+]
+
+["default community string"]
+description = "Standard-Community-String erkannt: {community} (Zugriff: {access})."
+recommendations = [
+  "Ändern Sie Standard-Community-Strings wie 'public' oder 'private'.",
+  "Verwenden Sie komplexe, einzigartige Strings.",
+  "Überwachen Sie SNMP-Verkehr auf unerlaubte Community-Strings."
+]
+references = [
+  "RFC 3411",
+  "Sicherheitsrichtlinien von Herstellern"
+]
+
+["information disclosure"]
+description = "Informationsgewinn: {info_type} via {source}."
+recommendations = [
+  "Beschränken Sie SNMP-Daten, um vertrauliche Informationen nicht preiszugeben.",
+  "Deaktivieren Sie nicht benötigte MIBs und SNMP-Skripte.",
+  "Überwachen Sie SNMP-Verkehr und Protokolldaten."
+]
+references = [
+  "Datenschutzrichtlinien",
+  "RFC 3411 Sicherheitsaspekte"
+]
