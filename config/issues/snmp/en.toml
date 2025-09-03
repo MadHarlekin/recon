@@ -1,0 +1,69 @@
+["insecure snmp version"]
+description = "SNMP service is using insecure protocol version `{version}`: {details}"
+recommendations = [
+    "Upgrade to SNMPv3 with authentication and encryption",
+    "Disable SNMPv1/v2c if not required for legacy systems",
+    "Implement network segmentation to limit SNMP access"
+]
+references = [
+    "RFC 3414: User-based Security Model (USM) for version 3 of SNMP",
+    "NIST SP 800-53: Security Controls for Federal Information Systems"
+]
+
+["weak snmp version"]
+description = "SNMP service is using weak protocol version `{version}`: {details}"
+recommendations = [
+    "Consider upgrading to SNMPv3 for enhanced security",
+    "Use strong, unique community strings",
+    "Limit access to management networks only"
+]
+
+["default community string"]
+description = "SNMP agent is using default community string `{community}` ({access})"
+recommendations = [
+    "Change default community strings to complex, unique values",
+    "Disable SNMP if not required",
+    "Implement SNMPv3 with authentication and encryption"
+]
+references = [
+    "CWE-1188: Insecure Default Initialization of Resource",
+    "OWASP: Default Credentials"
+]
+
+["information disclosure"]
+description = "SNMP service exposes {info_type} via {source}: {details}"
+recommendations = [
+    "Review and restrict SNMP information exposure",
+    "Configure SNMP views to limit accessible OIDs",
+    "Use SNMPv3 with proper authentication and access controls",
+    "Consider disabling system description if not needed"
+]
+references = [
+    "CWE-200: Information Exposure",
+    "RFC 3415: View-based Access Control Model (VACM) for SNMP"
+]
+
+["public snmp exposure"]
+description = "SNMP service ({protocol}, {version}) is accessible from public networks"
+recommendations = [
+    "Restrict SNMP access to management networks only",
+    "Use firewall rules to block external SNMP access",
+    "Consider using SNMPv3 with encryption for remote access",
+    "Implement VPN access for remote SNMP management"
+]
+references = [
+    "NIST SP 800-53 AC-3: Access Enforcement",
+    "CIS Critical Security Controls: Network Ports and Protocols"
+]
+
+["unusual transport protocol"]
+description = "SNMP service is using unusual transport protocol `{protocol}`: {details}"
+recommendations = [
+  "Verify SNMP over TCP configuration is intentional",
+  "Consider using standard UDP transport for SNMP",
+  "Ensure firewall rules account for TCP SNMP traffic"
+]
+references = [
+  "IANA: Assigned Internet Protocol Numbers",
+  "RFC 3411: SNMP Framework"
+]

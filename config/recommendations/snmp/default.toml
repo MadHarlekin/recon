@@ -1,0 +1,30 @@
+# SNMPv1 and SNMPv2c are insecure—only SNMPv3 is acceptable
+acceptable_versions = ["v3"]
+
+# Default or well‐known community strings to flag
+default_communities = [
+  "public",
+  "private",
+  "community",
+  "snmp",
+  "admin",
+  "manager",
+  "network",
+  "read",
+  "write"
+]
+
+# Whether SNMP exposed on public IPs is acceptable
+allow_public_exposure = false
+
+# Whether information from sysdescr or software lists (if any) is acceptable
+allow_system_info_disclosure = false
+allow_software_enumeration = false
+
+# Severity levels for findings
+[severity]
+insecure_snmp_version        = "HIGH"
+weak_snmp_version            = "MEDIUM"
+default_community_string     = "HIGH"
+public_snmp_exposure         = "CRITICAL"
+information_disclosure       = "MEDIUM"
